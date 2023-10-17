@@ -1,0 +1,75 @@
+* {
+  background-color: white;
+  margin: 0 auto;
+
+
+}
+
+div .Container {
+  width: 640px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+  color: black;
+  display: block;
+
+
+}
+
+div .Title {
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+
+}
+
+div .Input {
+  width: 100%;
+
+}
+
+input {
+  height: 40px;
+  color: black;
+}
+
+input[type=text] {
+  width: 80%;
+  border: none;
+  border-bottom: 2px solid lightgray;
+  outline: none;
+}
+
+.AddBtn {
+  background-color: rgb(64, 172, 129);
+  margin-left: 40px;
+
+}
+
+.RemoveBtn {
+  background-color: rgb(212, 83, 83);
+}
+
+.TodoItem {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  border-top: 1px solid rgb(240, 240, 240);
+
+
+}
+
+.TodoItem input[type="checkbox"] {
+  margin-right: 5px;
+
+}
+
+.TodoItem span {
+  width: 82%;
+}
+
+button {
+  width: 80px;
+  margin-top: 5px;
+}
