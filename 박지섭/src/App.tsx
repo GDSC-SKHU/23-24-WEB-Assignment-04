@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
-import './App.css'
-import TodoContainer from './components/TodoContainer';
-import TodoForm from "./components/TodoForm";
+// import React, { Component } from 'react';
+// import TodoContainer from './components/TodoContainer';
+// import TodoForm from "./components/TodoForm";
+import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <TodoContainer form={<TodoForm/>}>
-        이게맞나
-      </TodoContainer>
-    );
-  }
+function App() {
+  return (
+    <div className="root">
+      <div className="Container">
+        <p className="Title">
+
+        </p>
+        <div className="Input">
+
+        </div>
+        <div className="TodoList">
+          
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;
