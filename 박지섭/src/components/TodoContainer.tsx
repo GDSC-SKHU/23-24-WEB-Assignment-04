@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/todoContainer.css';
 
-const TodoContainer = ({ input, todolist }) => {
+const TodoContainer = ({ inputtest, todolist }) => {
   return (
     <div className="Container">
       <div className="Title">
         JiSeop.Park Todo List
       </div>
       <div className="input-wrapper">
-        { input }
+        { inputtest }
       </div>
       <div className="todolist-wrapper">
         { todolist }
