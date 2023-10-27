@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import ListItem from './components/ListItem';
+import ListItem from './ListItem';
+import AddTodo from './AddTodo';
 
 function TodoList() {
   const [todoList, setTodoList] = useState<ListItem[]>([]);
@@ -9,10 +10,7 @@ function TodoList() {
       <p className="Title">
         JiSeop.Park Todo List
       </p>
-      <div className="Input">
-        <input className="inputText" type="text" placeholder="오늘 할일은 무엇이 있을까요?" />
-        <button className="addButton">추가</button>
-      </div>
+      <AddTodo />
       <div className="TodoList">
         <div className="TodoItem">
           <input className="inputCheck" type="checkbox" />
