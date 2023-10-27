@@ -21,7 +21,7 @@ function Comportent() {
         }
     };
 
-    // 할 일을 삭제하는 함수
+    // 할일을 삭제하는 함수
     let removeTodo = (index: number) => {
         let updatedList = [...NewList];
         updatedList.splice(index, 1);
