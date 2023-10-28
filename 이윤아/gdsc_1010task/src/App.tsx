@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Comportent from './Comportent'; // Comportent 컴포넌트를 가져옵니다.
+import Comportent from './Comportent'; 
 
   function App() {
     return (

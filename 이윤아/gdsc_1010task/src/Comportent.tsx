@@ -1,37 +1,49 @@
 import React, { useState } from 'react';
 import { ListItem } from './Interface';
-import './App.tsx';
+import './App.css';
+import $ from 'jquery';
 
 function Comportent() {
     // useState 2개 정의
     // 1. input 값 관리
-    let [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState('');
     // 2. 할일을 리스트 목록으로 담음
-    let [NewList, setNewList] = useState<ListItem[]>([]);
+    const [NewList, setNewList] = useState<ListItem[]>([]);
 
-    // 할 일을 추가하는 함수
-    let addTodo = () => {
+    // 할일 추가
+    const addTodo = () => {
         if (inputValue) {
             const newTodo: ListItem = {
                 isCheck: false,
                 todoTxt: inputValue,
             };
-            setNewList([...NewList, newTodo]);  // 함수 사용시 값 변화
-            setInputValue(''); // 초기화
+            setNewList([...NewList, newTodo]);
+            setInputValue('');
         }
-    };
-
-    // 할일을 삭제하는 함수
+    }
+    //할 일 삭제
     let removeTodo = (index: number) => {
+        let todoToRemove = NewList[index];
+    
+        if (todoToRemove.isCheck) {
+            const updatedList = NewList.filter((_, i) => i !== index);
+            setNewList(updatedList);
+        }
+    }
+     // 삭제후 업데이트
+     let updateCheckBox = (index: number) => {
         let updatedList = [...NewList];
-        updatedList.splice(index, 1);
-        setNewList(updatedList); // 함수 사용시 값 변화
-    };
+        updatedList[index].isCheck = !updatedList[index].isCheck;
+        setNewList(updatedList);
+
+        // 체크박스의 상태에 따라 삭제 버튼 활성화/비활성화
+        let removeButton = $(`.RemoveBtn${index}`);
+        removeButton.prop('disabled', !updatedList[index].isCheck);
+    }
 
     return (
         <div>
-            <p className="Title">Yuna.I&nbsp; &nbsp;Todo List</p>
-
+            <p className="Title">Yuna.I Todo List</p>
             <div className="Input">
                 <input
                     type="text"
@@ -48,15 +60,15 @@ function Comportent() {
                     <div key={InDex} className="TodoItem">
                         <input
                             type="checkbox"
-                            checked={ToDo.isCheck}
-                            onChange={() => {
-                                let UpdateList = [...NewList];
-                                UpdateList[InDex].isCheck = !ToDo.isCheck;
-                                setNewList(UpdateList);
-                            }}
+                            id={`CuteChecky${InDex}`}
+                            onChange={() => updateCheckBox(InDex)}
                         />
                         <span className={ToDo.isCheck ? 'Checked' : ''}>{ToDo.todoTxt}</span>
-                        <button className="RemoveBtn" onClick={() => removeTodo(InDex)}>
+                        <button
+                            className={`RemoveBtn${InDex}`}
+                            onClick={() => removeTodo(InDex)}
+                            disabled={!ToDo.isCheck}
+                        >
                             삭제
                         </button>
                     </div>
@@ -66,5 +78,5 @@ function Comportent() {
     );
 }
 
-
 export default Comportent;
+
