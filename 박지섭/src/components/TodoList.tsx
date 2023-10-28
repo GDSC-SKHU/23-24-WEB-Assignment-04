@@ -8,11 +8,11 @@ function TodoList() {
   const [todoList, setTodoList] = useState<ListItem[]>([
     {
       isCheck: false,
-      todoTxt: "이게 맞는건가",
+      todoTxt: "과제 완료",
     },
     {
       isCheck: true,
-      todoTxt: "이게되네",
+      todoTxt: "살려주세요",
     }
   ]);
 
@@ -31,33 +31,43 @@ function TodoList() {
     const removeList = [...todoList];
     removeList.splice(index, 1);
     setTodoList(removeList);
-  }
+  };
+
+  const toggleCheck = (index: number) => {
+    const toggleList = [...todoList];
+    toggleList[index].isCheck = !toggleList[index].isCheck;
+    setTodoList(toggleList);
+  };
 
   return (
     <div className="Container">
       <p className="Title">
         JiSeop.Park Todo List
       </p>
+
       <div className="Input">
-      <input className="inputText"
-        type="text"
-        placeholder="오늘 할일은 무엇이 있을까요?"
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-      />
-      <button className="addButton" onClick={ addTodo }>추가</button>
-    </div>
+        <input className="inputText"
+          type="text"
+          placeholder="오늘 할일은 무엇이 있을까요?"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          // onKeyPress={(e) => { if (e.key === "Enter") addTodo(); }}
+        />
+        <button className="addButton" onClick={ addTodo }>추가</button>
+      </div>
+      
       <div className="TodoList">
-      {todoList.map((item, index) =>(
-        <div className="TodoItem" key={index}>
-          <input className="inputCheck"
-            type="checkbox"
-            checked={ item.isCheck } />
-          <span className="TodoText">{ item.todoTxt }</span>
-          <button className="removeButton" onClick={() => removeTodo(index)} >삭제</button>
-        </div>
-      ))}
-    </div> 
+        {todoList.map((item, index) =>(
+          <div className="TodoItem" key={index}>
+            <input className="inputCheck"
+              type="checkbox"
+              checked={item.isCheck}
+              onChange={() => toggleCheck(index)}/>
+            <span className="TodoText">{ item.todoTxt }</span>
+            <button className="removeButton" onClick={() => removeTodo(index)} >삭제</button>
+          </div>
+        ))}
+      </div> 
     </div>
   );
 }
