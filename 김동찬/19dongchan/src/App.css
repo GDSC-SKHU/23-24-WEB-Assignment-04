@@ -1,0 +1,78 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.Container {
+  width: 640px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+}
+
+.Title {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.Input {
+  width: 100%;
+  display: flex;
+  margin-bottom: 30px;
+
+}
+
+.TodoList {
+  width: 100%;
+
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border-top: 1px solid #ccc;
+}
+
+.todoItemContent {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+button.Remove {
+  background-color: rgb(212, 83, 83);
+  width: 80px;
+  margin-left: 8px;
+}
+
+.textInput {
+  height: 40px;
+  flex: 1;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+}
+
+span {
+  width: 100%;
+  font-weight: bold;
+
+}
+
+button {
+  width: 80px;
+  height: 40px;
+  background-color: rgb(64, 172, 129);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
