@@ -1,45 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ListItem } from './Interface';
 import './App.css';
 import $ from 'jquery';
 
-function Comportent() {
+function Component() {
     // useState 2개 정의
     // 1. input 값 관리
-    const [inputValue, setInputValue] = useState('');
-    // 2. 할일을 리스트 목록으로 담음
-    const [NewList, setNewList] = useState<ListItem[]>([]);
+    const [InputValue, setInputValue] = useState('');
+    // 2. 할 일 목록을 관리
+    const [AddList, setAddList] = useState<ListItem[]>([]);
 
-    // 할일 추가
-    const addTodo = () => {
-        if (inputValue) {
-            const newTodo: ListItem = {
-                isCheck: false,
-                todoTxt: inputValue,
-            };
-            setNewList([...NewList, newTodo]);
+    // 할 일 추가 함수
+    const AddTodo = () => {
+        if (InputValue) {
+            // 입력된 내용을 새로운 할 일로 추가
+            setAddList([...AddList, { isCheck: false, todoTxt: InputValue }]);
+            // 입력 필드 초기화
             setInputValue('');
         }
     }
-    //할 일 삭제
-    let removeTodo = (index: number) => {
-        let todoToRemove = NewList[index];
-    
-        if (todoToRemove.isCheck) {
-            const updatedList = NewList.filter((_, i) => i !== index);
-            setNewList(updatedList);
+
+    // 할 일 삭제 함수
+    const RemoveTodo = (Letter: number) => {
+        if (AddList[Letter].isCheck) {
+            // 체크된 항목만 제외한 업데이트된 할 일 목록 설정
+            setAddList(AddList.filter((_, i) => i !== Letter));
         }
     }
-     // 삭제후 업데이트
-     let updateCheckBox = (index: number) => {
-        let updatedList = [...NewList];
-        updatedList[index].isCheck = !updatedList[index].isCheck;
-        setNewList(updatedList);
 
-        // 체크박스의 상태에 따라 삭제 버튼 활성화/비활성화
-        let removeButton = $(`.RemoveBtn${index}`);
-        removeButton.prop('disabled', !updatedList[index].isCheck);
+    // 체크박스 업데이트 함수
+    const UpdateCbox = (Letter: number) => {
+        // 할 일 목록 복사본 생성
+        const UpdatedList = [...AddList];
+        // 체크 상태 변경 감지
+        UpdatedList[Letter].isCheck = !UpdatedList[Letter].isCheck;
+        // 목록 업데이트
+        setAddList(UpdatedList);
+
+        // 체크박스 상태에 따라 삭제 버튼 활성화/비활성화 하는 함수
+        let ButtonActivation = $(`.ButtonActivation${Letter}`);
+        ButtonActivation.prop('disabled', !UpdatedList[Letter].isCheck); //체크박스 체크되지 않으면 체크버튼 비활성화
     }
+
+    //  AddList가 업데이트될 때 모든 체크박스를 초기화
+    useEffect(() => {
+        $('.Cbox').prop('checked', false);
+    }, [AddList]);
 
     return (
         <div>
@@ -48,26 +54,28 @@ function Comportent() {
                 <input
                     type="text"
                     placeholder="오늘의 할 일은 무엇이 있을까요?"
-                    value={inputValue}
+                    value={InputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                 />
-                <button className="AddBtn" onClick={addTodo}>
+                <button className="AddBtn" onClick={AddTodo}>
                     추가
                 </button>
             </div>
             <div className="TodoList">
-                {NewList.map((ToDo, InDex) => (
-                    <div key={InDex} className="TodoItem">
+                {AddList.map((Todo, Letter) => (
+                    <div key={Letter} className="TodoItem">
                         <input
                             type="checkbox"
-                            id={`CuteChecky${InDex}`}
-                            onChange={() => updateCheckBox(InDex)}
+                            id={`CuteChecky${Letter}`}
+                            className="Cbox"
+                            checked={Todo.isCheck}
+                            onChange={() => UpdateCbox(Letter)}
                         />
-                        <span className={ToDo.isCheck ? 'Checked' : ''}>{ToDo.todoTxt}</span>
+                        <span className={Todo.isCheck ? 'Checked' : ''}>{Todo.todoTxt}</span>
                         <button
-                            className={`RemoveBtn${InDex}`}
-                            onClick={() => removeTodo(InDex)}
-                            disabled={!ToDo.isCheck}
+                            className={`ButtonActivation${Letter}`}
+                            onClick={() => RemoveTodo(Letter)}
+                            disabled={!Todo.isCheck}
                         >
                             삭제
                         </button>
@@ -78,5 +86,4 @@ function Comportent() {
     );
 }
 
-export default Comportent;
-
+export default Component;

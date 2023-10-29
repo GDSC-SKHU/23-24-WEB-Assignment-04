@@ -1,8 +1,6 @@
 * {
   background-color: white;
   margin: 0 auto;
-
-
 }
 
 div .Container {
@@ -11,9 +9,6 @@ div .Container {
   border-radius: 12px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
   color: black;
-  display: block;
-
-
 }
 
 div .Title {
@@ -47,7 +42,7 @@ input[type=text] {
 
 }
 
-.RemoveBtn {
+.Remove {
   background-color: rgb(212, 83, 83);
 }
 
