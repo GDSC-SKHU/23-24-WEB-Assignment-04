@@ -42,7 +42,8 @@ function Component() {
         ButtonActivation.prop('disabled', !UpdatedList[Letter].isCheck); //체크박스 체크되지 않으면 체크버튼 비활성화
     }
 
-    //  AddList가 업데이트될 때 모든 체크박스를 초기화
+    /*  랜더링 후 AddList가 업데이트될 때(RemoveTodo가 AddList 상태를 변경 했을 때 ) 
+    모든 체크박스를 초기화*/
     useEffect(() => {
         $('.Cbox').prop('checked', false);
     }, [AddList]);
