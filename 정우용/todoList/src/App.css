@@ -1,0 +1,89 @@
+*{
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.Container {
+  width: 640px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+  color: black;
+  display: block;
+}
+
+.Title {
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.Input {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.Input input {
+  margin-top: 50px;
+  width: 80%;
+  border: none;
+  border-bottom: none;
+  font-size: 18px;
+  outline: none;
+  placeholder: "오늘 할 일은 무엇이 있을까요?";
+}
+
+.Input input::placeholder {
+  color: grey; 
+  opacity: 1; 
+}
+
+.Input button {
+  background-color: rgb(64, 172, 129);
+  margin-left: 43px;
+  height: 30px;
+  border: none;
+  color: white;
+}
+
+button.Remove {
+  background-color: rgba(212,83,83);
+  height: 30px;
+  color: white;
+  float: right;
+  border: none;
+  margin-top: 5px;
+  margin-left: auto;
+}
+
+button {
+  width: 80px;
+  margin-top: 5px;
+}
+
+.TodoList div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-top: 1px solid rgb(240, 240, 240);
+  font-size: 20px;
+}
+
+.TodoList span{
+  width: 82%;
+}
+
+.TodoList input[type="checkbox"] {
+  margin-right: 5px;
+}
