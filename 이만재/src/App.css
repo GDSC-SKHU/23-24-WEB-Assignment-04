@@ -1,0 +1,81 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.Container{
+  width: 640px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 16px rgb(0, 0, 0, 0.1);
+}
+
+.Title{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 25px;
+  width: 100%;
+}
+
+.input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+input{
+  height: 40px;
+  width: 85%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #ccc;
+}
+
+.TodoList{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.TodoList div{
+  border-top: 1px solid #ccc;
+  margin-top: 5px;
+  align-items: center;
+  display: flex;
+
+}
+
+.TodoList span{
+  text-align: left;
+  margin-left: 5px;
+}
+
+button{
+  width: 80px;
+  height: 40px;
+  background-color: rgba(64,172,129);
+  color: white;
+  border-radius: 5px;
+  margin-left: 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  }
+
+button.Remove{
+  background-color: rgba(212,83,83);
+  color: white;
+  float: right;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-left: auto;
+
+}
+
+.checkbox{
+  width: 15px;
+}
