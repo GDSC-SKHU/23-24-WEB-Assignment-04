@@ -1,0 +1,118 @@
+*{
+  margin: 0 auto;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.todo-container {
+  width: 640px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+  color: black;
+  background-color: #fff;
+}
+
+.title {
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 30px;
+
+}
+
+input {
+  height: 40px;
+  width: 80%;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid ;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.add-button {
+  width: 75px;
+  height: 38px;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: rgb(64, 172, 129);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.remove-button {
+  width: 75px;
+  height: 38px;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: rgb(212, 83, 83);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  float: right;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid lightgray;
+  width: 93.5%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.todo-item input[type="checkbox"] {
+  transform: scale(0.5); /* 체크박스 크기 조정 */
+  margin-right: -100px;
+}
+
+.todo-item span {
+  width:85%;
+  margin-left: -120px;
+  margin-top: -5px;
+  text-decoration: none;
+}
+
+input[type="checkbox"] {
+  flex: 0 0 auto; /* 체크박스 크기 유지 */
+  margin-left: -220px;
+}
+
+span {
+  flex: 1; /* 할일이 사용 가능한 공간을 채우도록 설정 */
+}
+
+button.remove {
+  order: 1; /* 삭제 버튼을 항상 오른쪽 끝으로 이동 */
+  flex: 0 0 auto; /* 삭제 버튼 크기 유지 */
+  background-color: rgb(212, 83, 83);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  float: right;
+}
+
+
+.todo-item {
+    display: flex;
+    border-top: 1px solid #ccc; /* 선택적으로 경계선 추가 */
+}
