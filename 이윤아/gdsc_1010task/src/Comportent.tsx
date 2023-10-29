@@ -6,12 +6,12 @@ import $ from 'jquery';
 function Component() {
     // useState 2개 정의
     // 1. input 값 관리
-    const [InputValue, setInputValue] = useState('');
+    let [InputValue, setInputValue] = useState('');
     // 2. 할 일 목록을 관리
-    const [AddList, setAddList] = useState<ListItem[]>([]);
+    let [AddList, setAddList] = useState<ListItem[]>([]);
 
     // 할 일 추가 함수
-    const AddTodo = () => {
+    let AddTodo = () => {
         if (InputValue) {
             // 입력된 내용을 새로운 할 일로 추가
             setAddList([...AddList, { isCheck: false, todoTxt: InputValue }]);
@@ -21,7 +21,7 @@ function Component() {
     }
 
     // 할 일 삭제 함수
-    const RemoveTodo = (Letter: number) => {
+    let RemoveTodo = (Letter: number) => {
         if (AddList[Letter].isCheck) {
             // 체크된 항목만 제외한 업데이트된 할 일 목록 설정
             setAddList(AddList.filter((_, i) => i !== Letter));
@@ -29,9 +29,9 @@ function Component() {
     }
 
     // 체크박스 업데이트 함수
-    const UpdateCbox = (Letter: number) => {
+    let UpdateCbox = (Letter: number) => {
         // 할 일 목록 복사본 생성
-        const UpdatedList = [...AddList];
+        let UpdatedList = [...AddList];
         // 체크 상태 변경 감지
         UpdatedList[Letter].isCheck = !UpdatedList[Letter].isCheck;
         // 목록 업데이트
