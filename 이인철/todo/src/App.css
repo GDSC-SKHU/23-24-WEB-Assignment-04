@@ -1,0 +1,67 @@
+.root {
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.container{
+    align-items: center;
+    width: 640px;
+    padding:12px;
+    border:2px solid whitesmoke;
+    border-radius: 12px;
+    box-shadow: 0 0 16px rgb(0, 0, 0, 0.1);
+}
+.titleName{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.titlep{
+    align-items: center;
+    font-size: 30px;
+    color: black;
+}
+
+.input1{
+    width:100%;
+    display:flex;
+}
+
+.todolist{
+    width: 100%;
+    display: flex;
+}
+
+.todoitem{
+    width:100%;
+    font-weight: bold;
+}
+.inputtag{
+    width:100%;
+}
+.but{
+    width: 80px;
+    color:white;
+    background-color: rgb(64, 172, 129);
+}
+.but2{
+    width:80px;
+    height:40px;
+    color:white;
+    background-color: rgb(212,83,83);
+}
+input{
+    border:none;
+    border-bottom: 2px solid whitesmoke;
+}
+hr{
+    background: whitesmoke;
+    height: 1px;
+    border:0;
+}
